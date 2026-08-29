@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Képregények | The Hangman</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-background"></div>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">THE <strong>HANGMAN</strong></span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html">Kezdőlap</a>
+        <a href="kepregenyek.html" class="active">Képregények</a>
+        <a href="karakterek.html">Karakterek</a>
+        <a href="index.html#vilag">A világ</a>
+        <a href="index.html#rolunk">Információ</a>
+    </nav>
+
+    <div class="nav-right">
+        <button class="search-button" onclick="openSearch()">
+            <span>⌕</span>
+        </button>
+        <a href="kepregenyek.html" class="nav-button">Olvasás</a>
+    </div>
+</header>
+
+
+<main>
+
+<section class="comics-hero">
+
+    <div class="comics-hero-content">
+
+        <div class="section-label">
+            <span></span>
+            THE HANGMAN UNIVERSE
+        </div>
+
+        <h1>
+            KÉPREGÉNYEK
+        </h1>
+
+        <p>
+            Lépj be a The Hangman történeteibe. Fedezd fel Hóhér
+            útját fejezetről fejezetre, és olvasd el az univerzum
+            történeteit eredeti képregényformában.
+        </p>
+
+        <div class="comic-counter">
+            <strong>03</strong>
+            <span>MEGJELENT KÉPREGÉNY</span>
+        </div>
+
+    </div>
+
+    <div class="comics-hero-decoration">
+        <span>THE</span>
+        <strong>H</strong>
+        <span>HANGMAN</span>
+    </div>
+
+</section>
+
+
+<section class="comics-section">
+
+    <div class="comics-toolbar">
+
+        <div>
+            <div class="section-label">
+                <span></span>
+                ARCHÍVUM
+            </div>
+
+            <h2>MINDEN KÉPREGÉNY</h2>
+        </div>
+
+        <div class="comic-filter">
+
+            <button class="filter active" data-filter="all">
+                ÖSSZES
+            </button>
+
+            <button class="filter" data-filter="hangman">
+                THE HANGMAN
+            </button>
+
+            <button class="filter" data-filter="special">
+                KÜLÖNKIADÁS
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="comic-catalog">
+
+
+        <a href="kepregeny.html?id=1"
+           class="catalog-card"
+           data-category="hangman">
+
+            <div class="catalog-cover">
+
+                <img src="kepek/summervacation.webp"
+                     alt="The Hangman #01">
+
+                <div class="cover-overlay"></div>
+
+                <div class="issue-number">
+                    #01
+                </div>
+
+                <div class="cover-status">
+                    <span></span>
+                    ELÉRHETŐ
+                </div>
+
+                <div class="read-overlay">
+                    <div class="read-circle">
+                        →
+                    </div>
+                    <span>OLVASÁS</span>
+                </div>
+
+            </div>
+
+            <div class="catalog-info">
+
+                <div>
+                    <span class="catalog-series">
+                        THE HANGMAN
+                    </span>
+
+                    <h3>
+                        The Hangman: Summer Vacation
+                    </h3>
+
+                    <p>
+                        Egy nyári kiruccanás.
+                    </p>
+                </div>
+
+                <div class="catalog-meta">
+                    <span>01</span>
+                    <span>•</span>
+                    <span>2026</span>
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="kepregeny.html?id=2"
+           class="catalog-card"
+           data-category="hangman">
+
+            <div class="catalog-cover">
+
+                <img src="kepek/summervacation2.webp"
+                     alt="The Hangman #02">
+
+                <div class="cover-overlay"></div>
+
+                <div class="issue-number">
+                    #02
+                </div>
+
+                <div class="cover-status">
+                    <span></span>
+                    ELÉRHETŐ
+                </div>
+
+                <div class="read-overlay">
+                    <div class="read-circle">
+                        →
+                    </div>
+                    <span>OLVASÁS</span>
+                </div>
+
+            </div>
+
+            <div class="catalog-info">
+
+                <div>
+                    <span class="catalog-series">
+                        THE HANGMAN
+                    </span>
+
+                    <h3>
+                        The Hangman: Summer Vacation #2
+                    </h3>
+
+                    <p>
+                        A nyári kaland folytatódik.
+                    </p>
+                </div>
+
+                <div class="catalog-meta">
+                    <span>02</span>
+                    <span>•</span>
+                    <span>2026</span>
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a href="kepregeny.html?id=3"
+           class="catalog-card"
+           data-category="special">
+
+            <div class="catalog-cover">
+
+                <img src="kepek/hellishcover.webp"
+                     alt="The Hangman különkiadás">
+
+                <div class="cover-overlay"></div>
+
+                <div class="issue-number">
+                    #03
+                </div>
+
+                <div class="cover-status special-status">
+                    <span></span>
+                    KÜLÖNKIADÁS
+                </div>
+
+                <div class="read-overlay">
+                    <div class="read-circle">
+                        →
+                    </div>
+                    <span>OLVASÁS</span>
+                </div>
+
+            </div>
+
+            <div class="catalog-info">
+
+                <div>
+                    <span class="catalog-series">
+                        THE HANGMAN
+                    </span>
+
+                    <h3>
+                        The Hangman: Hellish Halloween
+                    </h3>
+
+                    <p>
+                        Hóhér és Medúza egy pokoli halloweeni kalandba keverednek.
+                    </p>
+                </div>
+
+                <div class="catalog-meta">
+                    <span>03</span>
+                    <span>•</span>
+                    <span>SPECIAL</span>
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <div class="catalog-card coming-soon">
+
+            <div class="coming-cover">
+
+                <div class="coming-symbol">
+                    H
+                </div>
+
+                <span>HAMAROSAN</span>
+
+                <strong>#04</strong>
+
+            </div>
+
+            <div class="catalog-info">
+
+                <div>
+                    <span class="catalog-series">
+                        THE HANGMAN
+                    </span>
+
+                    <h3>
+                        ????
+                    </h3>
+
+                    <p>
+                        Az új történet hamarosan érkezik.
+                    </p>
+                </div>
+
+                <div class="catalog-meta">
+                    <span>04</span>
+                    <span>•</span>
+                    <span>SOON</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section class="comic-bottom">
+
+    <div class="comic-bottom-content">
+
+        <div class="section-label">
+            <span></span>
+            THE HANGMAN
+        </div>
+
+        <h2>
+            A TÖRTÉNET<br>
+            <span>MOST KEZDŐDIK.</span>
+        </h2>
+
+        <p>
+            Válassz egy fejezetet és lépj be Hóhér világába.
+            Minden történet új részleteket fed fel az univerzumból.
+        </p>
+
+        <a href="index.html" class="secondary-button">
+            ← VISSZA A KEZDŐLAPRA
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                <span class="logo-mark">H</span>
+                <span class="logo-text">
+                    THE <strong>HANGMAN</strong>
+                </span>
+            </div>
+
+            <p>
+                Egy sötét képregényes univerzum történetekkel,
+                karakterekkel és titkokkal.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <div>
+                <h4>NAVIGÁCIÓ</h4>
+                <a href="index.html">Kezdőlap</a>
+                <a href="kepregenyek.html">Képregények</a>
+                <a href="karakterek.html">Karakterek</a>
+            </div>
+
+            <div>
+                <h4>UNIVERZUM</h4>
+                <a href="index.html#vilag">A világ</a>
+                <a href="index.html#rolunk">Információ</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 THE HANGMAN UNIVERSE</span>
+        <span>CREATED BY FILIP CORVINA</span>
+    </div>
+
+</footer>
+
+
+<div class="search-overlay" id="searchOverlay">
+
+    <button class="close-search" onclick="closeSearch()">
+        ×
+    </button>
+
+    <div class="search-box">
+
+        <span>⌕</span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Mit keresel?"
+            onkeyup="searchSite()">
+
+    </div>
+
+    <div class="search-results" id="searchResults">
+        <p>Kezdj el gépelni a kereséshez...</p>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+const filters = document.querySelectorAll(".filter");
+const cards = document.querySelectorAll(".catalog-card[data-category]");
+
+filters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        filters.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        filter.classList.add("active");
+
+        const category = filter.dataset.filter;
+
+        cards.forEach(card => {
+
+            if (category === "all" ||
+                card.dataset.category === category) {
+
+                card.style.display = "block";
+
+                setTimeout(() => {
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+                }, 50);
+
+            } else {
+
+                card.style.opacity = "0";
+                card.style.transform = "translateY(15px)";
+
+                setTimeout(() => {
+                    card.style.display = "none";
+                }, 250);
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

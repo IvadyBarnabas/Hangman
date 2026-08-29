@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hangman | Hivatalos oldal</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-background"></div>
+
+<header class="navbar">
+    <a href="index.html" class="logo">
+        <span class="logo-mark">H</span>
+        <span class="logo-text">THE <strong>HANGMAN</strong></span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="index.html" class="active">Kezdőlap</a>
+        <a href="kepregenyek.html">Képregények</a>
+        <a href="karakterek.html">Karakterek</a>
+        <a href="#vilag">A világ</a>
+        <a href="#rolunk">Információ</a>
+    </nav>
+
+    <div class="nav-right">
+        <button class="search-button" onclick="openSearch()">
+            <span>⌕</span>
+        </button>
+        <a href="kepregenyek.html" class="nav-button">Olvasás</a>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div class="hero-tag">
+            <span></span>
+            THE HANGMAN UNIVERSE
+        </div>
+
+        <h1>
+            THE<br>
+            <span>HANGMAN</span>
+        </h1>
+
+        <p class="hero-description">
+            Egy sötét világ történetei, ahol a bűnnek ára van.
+            Ismerd meg Hóhért, az univerzum karaktereit és a történeteket,
+            amelyek mögöttük rejtőznek.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="kepregenyek.html" class="primary-button">
+                <span>▶</span>
+                Képregények
+            </a>
+
+            <a href="karakterek.html" class="secondary-button">
+                Karakterek
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="hero-info">
+            <div>
+                <strong>01</strong>
+                <span>UNIVERZUM</span>
+            </div>
+
+            <div>
+                <strong>16+</strong>
+                <span>KORHATÁR</span>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <span>TÖRTÉNETEK</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-character">
+        <div class="character-glow"></div>
+        <img src="kepek/random.webp" alt="The Hangman">
+    </div>
+
+    <div class="hero-scroll">
+        <span></span>
+        GÖRGESS LE
+    </div>
+
+</section>
+
+
+<section class="intro-section">
+
+    <div class="section-label">
+        <span></span>
+        THE HANGMAN UNIVERSE
+    </div>
+
+    <div class="intro-grid">
+
+        <div class="intro-title">
+            <h2>
+                ÜDVÖZÖL A<br>
+                <span>HÓHÉR VILÁGA.</span>
+            </h2>
+        </div>
+
+        <div class="intro-text">
+            <p>
+                A The Hangman egy sötét, képregényes univerzum,
+                amelynek középpontjában Hóhér áll.
+            </p>
+
+            <p>
+                Fedezd fel a történeteket, a karaktereket,
+                az ellenségeket és azokat a helyeket,
+                amelyek ezt a világot alkotják.
+            </p>
+
+            <a href="#vilag" class="text-link">
+                FEDEZD FEL A VILÁGOT
+                <span>→</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="featured-section">
+
+    <div class="section-heading">
+        <div>
+            <div class="section-label">
+                <span></span>
+                LEGÚJABB TARTALMAK
+            </div>
+
+            <h2>FELFEDEZÉS</h2>
+        </div>
+
+        <a href="kepregenyek.html" class="view-all">
+            ÖSSZES KÉPREGÉNY
+            <span>→</span>
+        </a>
+    </div>
+
+    <div class="comic-grid">
+
+        <a href="kepregeny.html?id=1" class="comic-card large">
+            <div class="comic-image">
+                <img src="kepek/summervacation.webp" alt="The Hangman képregény">
+                <div class="comic-number">#01</div>
+                <div class="comic-hover">
+                    <span>OLVASÁS</span>
+                    <strong>→</strong>
+                </div>
+            </div>
+
+            <div class="comic-info">
+                <div>
+                    <small>THE HANGMAN</small>
+                    <h3>The Hangman: Summer Vacation</h3>
+                </div>
+                <span class="arrow">↗</span>
+            </div>
+        </a>
+
+        <a href="kepregeny.html?id=2" class="comic-card">
+            <div class="comic-image">
+                <img src="kepek/summervacation2.webp" alt="The Hangman képregény">
+                <div class="comic-number">#02</div>
+                <div class="comic-hover">
+                    <span>OLVASÁS</span>
+                    <strong>→</strong>
+                </div>
+            </div>
+
+            <div class="comic-info">
+                <div>
+                    <small>THE HANGMAN</small>
+                    <h3>The Hangman: Summer Vacation #2</h3>
+                </div>
+                <span class="arrow">↗</span>
+            </div>
+        </a>
+
+        <a href="kepregeny.html?id=3" class="comic-card">
+            <div class="comic-image">
+                <img src="kepek/hellishcover.webp" alt="The Hangman képregény">
+                <div class="comic-number">#03</div>
+                <div class="comic-hover">
+                    <span>OLVASÁS</span>
+                    <strong>→</strong>
+                </div>
+            </div>
+
+            <div class="comic-info">
+                <div>
+                    <small>THE HANGMAN</small>
+                    <h3>The Hangman: Hellish Halloween</h3>
+                </div>
+                <span class="arrow">↗</span>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="hangman-section" id="vilag">
+
+    <div class="hangman-image">
+        <div class="red-line"></div>
+        <img src="kepek/cyberhangman.webp" alt="Hóhér">
+    </div>
+
+    <div class="hangman-content">
+
+        <div class="section-label">
+            <span></span>
+            A FŐSZEREPLŐ
+        </div>
+
+        <h2>
+            Ő A<br>
+            <span>HÓHÉR.</span>
+        </h2>
+
+        <p>
+            Egy alak, aki nem illik sem a hősök, sem a gonoszok közé.
+            Saját szabályai szerint járja a világot, miközben egyre több
+            ellenséggel és titokkal kerül szembe.
+        </p>
+
+        <div class="character-stats">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>FŐ KARAKTER</span>
+            </div>
+
+            <div class="stat">
+                <strong>?</strong>
+                <span>ISMERETLEN</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>TÖRTÉNET</span>
+            </div>
+
+        </div>
+
+        <a href="karakterek.html" class="primary-button">
+            KARAKTER ADATLAP
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="world-section">
+
+    <div class="world-header">
+        <div>
+            <div class="section-label">
+                <span></span>
+                THE HANGMAN
+            </div>
+            <h2>EGY EGÉSZ<br><span>VILÁG VÁR.</span></h2>
+        </div>
+
+        <p>
+            Nem csak egyetlen történetről van szó.
+            A The Hangman univerzumában számtalan karakter,
+            helyszín és történetszál találkozik.
+        </p>
+    </div>
+
+    <div class="world-cards">
+
+        <a href="karakterek.html" class="world-card">
+            <div class="world-card-number">01</div>
+            <div class="world-card-icon">♙</div>
+            <h3>KARAKTEREK</h3>
+            <p>Ismerd meg az univerzum szereplőit.</p>
+            <span>MEGNÉZEM →</span>
+        </a>
+
+        <a href="kepregenyek.html" class="world-card">
+            <div class="world-card-number">02</div>
+            <div class="world-card-icon">▤</div>
+            <h3>KÉPREGÉNYEK</h3>
+            <p>Olvasd végig a The Hangman történeteit.</p>
+            <span>OLVASÁS →</span>
+        </a>
+
+        <a href="#rolunk" class="world-card">
+            <div class="world-card-number">03</div>
+            <div class="world-card-icon">◈</div>
+            <h3>UNIVERZUM</h3>
+            <p>Fedezd fel a háttértörténeteket és lore-t.</p>
+            <span>FELFEDEZÉS →</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="quote-section" id="rolunk">
+
+    <div class="quote-mark">“</div>
+
+    <blockquote>
+        NEM MINDENKI ÉRDEMLI MEG,<br>
+        HOGY MEGMENTSD.
+    </blockquote>
+
+    <div class="quote-line"></div>
+
+    <span>— THE HANGMAN</span>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <div class="logo">
+                <span class="logo-mark">H</span>
+                <span class="logo-text">THE <strong>HANGMAN</strong></span>
+            </div>
+
+            <p>
+                Egy sötét képregényes univerzum
+                történetekkel, karakterekkel és titkokkal.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <div>
+                <h4>NAVIGÁCIÓ</h4>
+                <a href="index.html">Kezdőlap</a>
+                <a href="kepregenyek.html">Képregények</a>
+                <a href="karakterek.html">Karakterek</a>
+            </div>
+
+            <div>
+                <h4>UNIVERZUM</h4>
+                <a href="#vilag">A világ</a>
+                <a href="#rolunk">Információ</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 THE HANGMAN UNIVERSE</span>
+        <span>CREATED BY FILIP CORVINA</span>
+    </div>
+
+</footer>
+
+
+<div class="search-overlay" id="searchOverlay">
+
+    <button class="close-search" onclick="closeSearch()">×</button>
+
+    <div class="search-box">
+        <span>⌕</span>
+        <input type="text" id="searchInput" placeholder="Mit keresel?" onkeyup="searchSite()">
+    </div>
+
+    <div class="search-results" id="searchResults">
+        <p>Kezdj el gépelni a kereséshez...</p>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1849 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #080809;
+    --dark: #101011;
+    --dark2: #151517;
+    --red: #b51624;
+    --red-light: #e32838;
+    --white: #f4f3f1;
+    --gray: #969598;
+    --border: rgba(255,255,255,0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(181,22,36,0.12), transparent 30%),
+        radial-gradient(circle at 10% 70%, rgba(181,22,36,0.06), transparent 25%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.navbar {
+    height: 82px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: rgba(5,5,6,0.45);
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+}
+
+.logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    transform: skew(-8deg);
+}
+
+.logo-text {
+    font-size: 17px;
+}
+
+.logo-text strong {
+    color: var(--red-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 34px;
+    margin-left: 80px;
+}
+
+.nav-links a {
+    color: #a8a7a9;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -31px;
+    width: 100%;
+    height: 2px;
+    background: var(--red-light);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.search-button {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.nav-button,
+.primary-button {
+    background: var(--red);
+    padding: 13px 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    transition: 0.3s;
+}
+
+.nav-button:hover,
+.primary-button:hover {
+    background: var(--red-light);
+    transform: translateY(-2px);
+}
+
+.hero {
+    min-height: 850px;
+    height: 100vh;
+    max-height: 1000px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, #070708 0%, rgba(7,7,8,0.96) 30%, rgba(7,7,8,0.3) 75%, rgba(7,7,8,0.8) 100%),
+        url("images/hangman-hero-bg.jpg") center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, var(--black) 0%, transparent 25%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    margin-left: 8%;
+    width: 540px;
+    padding-top: 70px;
+}
+
+.hero-tag,
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #aaa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+}
+
+.hero-tag span,
+.section-label span {
+    width: 25px;
+    height: 2px;
+    background: var(--red-light);
+}
+
+.hero h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(80px, 10vw, 150px);
+    line-height: 0.82;
+    letter-spacing: -4px;
+    margin: 28px 0;
+}
+
+.hero h1 span {
+    color: var(--red-light);
+}
+
+.hero-description {
+    color: #aaa9ab;
+    max-width: 480px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.primary-button {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 13px 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.secondary-button:hover {
+    border-color: var(--red);
+    background: rgba(181,22,36,0.1);
+}
+
+.hero-info {
+    display: flex;
+    margin-top: 70px;
+    gap: 45px;
+}
+
+.hero-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-info strong {
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+}
+
+.hero-info span {
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.hero-character {
+    position: absolute;
+    right: 2%;
+    bottom: -4%;
+    width: 58%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-character img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 50px rgba(0,0,0,0.8));
+}
+
+.character-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: rgba(181,22,36,0.18);
+    filter: blur(100px);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 35px;
+    left: 8%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.hero-scroll span {
+    width: 35px;
+    height: 1px;
+    background: #555;
+}
+
+.intro-section,
+.featured-section,
+.hangman-section,
+.world-section {
+    padding: 130px 8%;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin-top: 45px;
+}
+
+.intro-title h2,
+.hangman-content h2,
+.world-header h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(50px, 6vw, 85px);
+    line-height: 0.95;
+}
+
+.intro-title span,
+.hangman-content h2 span,
+.world-header h2 span {
+    color: var(--red-light);
+}
+
+.intro-text {
+    max-width: 500px;
+    padding-top: 5px;
+}
+
+.intro-text p {
+    color: #8e8d90;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.text-link,
+.view-all {
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-top: 20px;
+}
+
+.text-link span,
+.view-all span {
+    color: var(--red-light);
+    font-size: 18px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 55px;
+    margin-top: 10px;
+}
+
+.comic-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 18px;
+}
+
+.comic-card {
+    background: var(--dark2);
+    transition: 0.4s;
+}
+
+.comic-card:hover {
+    transform: translateY(-7px);
+}
+
+.comic-image {
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+}
+
+.comic-card.large .comic-image {
+    height: 500px;
+}
+
+.comic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.comic-card:hover .comic-image img {
+    transform: scale(1.05);
+}
+
+.comic-number {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: var(--red);
+    padding: 8px 12px;
+    font-family: "Oswald", sans-serif;
+    font-size: 14px;
+}
+
+.comic-hover {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: rgba(120,0,10,0.6);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.comic-card:hover .comic-hover {
+    opacity: 1;
+}
+
+.comic-hover span {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.comic-hover strong {
+    font-size: 24px;
+}
+
+.comic-info {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comic-info small {
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.comic-info h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.arrow {
+    color: var(--red-light);
+    font-size: 22px;
+}
+
+.hangman-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    background: #0d0d0f;
+}
+
+.hangman-image {
+    height: 650px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hangman-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.hangman-image:hover img {
+    filter: grayscale(30%);
+    transform: scale(1.03);
+}
+
+.red-line {
+    position: absolute;
+    width: 5px;
+    height: 130px;
+    background: var(--red-light);
+    left: 0;
+    top: 50px;
+    z-index: 2;
+}
+
+.hangman-content p {
+    color: #8b898c;
+    line-height: 1.9;
+    max-width: 500px;
+    margin: 30px 0;
+    font-size: 14px;
+}
+
+.character-stats {
+    display: flex;
+    gap: 45px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 25px 0;
+    margin-bottom: 35px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat strong {
+    font-family: "Oswald", sans-serif;
+    font-size: 27px;
+}
+
+.stat span {
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+.world-section {
+    background: #09090a;
+}
+
+.world-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 80px;
+}
+
+.world-header p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 480px;
+}
+
+.world-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 65px;
+}
+
+.world-card {
+    min-height: 310px;
+    background: #111113;
+    border: 1px solid var(--border);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.world-card:hover {
+    border-color: rgba(227,40,56,0.5);
+    transform: translateY(-6px);
+}
+
+.world-card-number {
+    position: absolute;
+    right: 25px;
+    top: 22px;
+    color: #333;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+}
+
+.world-card-icon {
+    color: var(--red-light);
+    font-size: 35px;
+    margin-bottom: 60px;
+}
+
+.world-card h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 28px;
+}
+
+.world-card p {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 10px 0 25px;
+}
+
+.world-card > span {
+    color: #aaa;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.quote-section {
+    min-height: 500px;
+    padding: 120px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(8,8,9,0.82), rgba(8,8,9,0.95)),
+        url("images/hangman-quote-bg.jpg") center/cover;
+}
+
+.quote-mark {
+    font-family: Georgia, serif;
+    color: var(--red);
+    font-size: 90px;
+    height: 70px;
+}
+
+.quote-section blockquote {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(35px, 5vw, 65px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.quote-line {
+    width: 50px;
+    height: 2px;
+    background: var(--red-light);
+    margin: 20px 0;
+}
+
+.quote-section > span {
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.footer {
+    background: #050506;
+    padding: 70px 8% 25px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 60px;
+}
+
+.footer-brand {
+    max-width: 320px;
+}
+
+.footer-brand p {
+    color: #555;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.footer-links h4 {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #aaa;
+    font-size: 11px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--red-light);
+}
+
+.footer-bottom {
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5,5,6,0.97);
+    z-index: 100;
+    display: none;
+    padding: 150px 12%;
+}
+
+.search-overlay.active {
+    display: block;
+}
+
+.close-search {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.search-box {
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.search-box span {
+    color: var(--red-light);
+    font-size: 30px;
+}
+
+.search-box input {
+    flex: 1;
+    background: none;
+    border: 0;
+    outline: none;
+    color: white;
+    font-size: 35px;
+    font-family: "Oswald", sans-serif;
+}
+
+.search-results {
+    margin-top: 30px;
+    color: #777;
+}
+
+@media (max-width: 1000px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-character {
+        opacity: 0.45;
+        width: 80%;
+    }
+
+    .hero-content {
+        margin-left: 7%;
+    }
+
+    .intro-grid,
+    .hangman-section,
+    .world-header {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .comic-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .comic-card.large {
+        grid-column: span 2;
+    }
+
+    .world-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero {
+        min-height: 750px;
+    }
+
+    .hero-content {
+        margin: 0 6%;
+        width: auto;
+    }
+
+    .hero h1 {
+        font-size: 80px;
+    }
+
+    .hero-character {
+        width: 100%;
+        right: -25%;
+        opacity: 0.3;
+    }
+
+    .hero-info {
+        gap: 20px;
+    }
+
+    .intro-section,
+    .featured-section,
+    .hangman-section,
+    .world-section {
+        padding: 80px 6%;
+    }
+
+    .comic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comic-card.large {
+        grid-column: span 1;
+    }
+
+    .comic-image,
+    .comic-card.large .comic-image {
+        height: 430px;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hangman-image {
+        height: 450px;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        gap: 50px;
+    }
+
+    .quote-section {
+        padding: 90px 6%;
+    }
+}
+
+
+.comics-hero {
+    min-height: 590px;
+    padding: 170px 8% 90px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, #080809 0%, #080809 45%, rgba(8,8,9,0.82) 100%),
+        url("images/hangman-hero-bg.jpg") center/cover;
+    border-bottom: 1px solid var(--border);
+}
+
+.comics-hero::after {
+    content: "";
+    position: absolute;
+    right: -150px;
+    top: -250px;
+    width: 600px;
+    height: 600px;
+    border: 1px solid rgba(181,22,36,0.25);
+    border-radius: 50%;
+}
+
+.comics-hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+}
+
+.comics-hero h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(65px, 9vw, 125px);
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin: 25px 0;
+}
+
+.comics-hero p {
+    max-width: 590px;
+    color: #858387;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.comic-counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.comic-counter strong {
+    font-family: "Oswald", sans-serif;
+    font-size: 28px;
+    color: var(--red-light);
+}
+
+.comic-counter span {
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.comics-hero-decoration {
+    position: absolute;
+    right: 8%;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    color: rgba(255,255,255,0.035);
+    z-index: 1;
+}
+
+.comics-hero-decoration span {
+    font-size: 35px;
+    letter-spacing: 10px;
+}
+
+.comics-hero-decoration strong {
+    font-size: 350px;
+    line-height: 0.7;
+    color: rgba(181,22,36,0.07);
+}
+
+.comics-section {
+    padding: 100px 8% 130px;
+}
+
+.comics-toolbar {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 45px;
+}
+
+.comics-toolbar h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 48px;
+    margin-top: 12px;
+}
+
+.comic-filter {
+    display: flex;
+    gap: 7px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter {
+    background: transparent;
+    border: 0;
+    color: #666;
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.filter:hover {
+    color: white;
+}
+
+.filter.active {
+    color: white;
+}
+
+.filter.active::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: -1px;
+    height: 2px;
+    background: var(--red-light);
+}
+
+.comic-catalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px 20px;
+}
+
+.catalog-card {
+    display: block;
+    min-width: 0;
+    transition:
+        opacity 0.25s,
+        transform 0.25s;
+}
+
+.catalog-cover {
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    background: #111113;
+}
+
+.catalog-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.catalog-card:hover .catalog-cover img {
+    transform: scale(1.045);
+}
+
+.cover-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.2),
+            transparent 35%,
+            rgba(0,0,0,0.85)
+        );
+}
+
+.issue-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--red);
+    padding: 9px 13px;
+    font-family: "Oswald", sans-serif;
+    font-size: 15px;
+    z-index: 2;
+}
+
+.cover-status {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+    color: white;
+    z-index: 2;
+}
+
+.cover-status span {
+    width: 6px;
+    height: 6px;
+    background: #d51d31;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(213,29,49,0.8);
+}
+
+.special-status {
+    color: #ddd;
+}
+
+.read-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(100,0,10,0.62);
+    opacity: 0;
+    transition: 0.35s;
+}
+
+.catalog-card:hover .read-overlay {
+    opacity: 1;
+}
+
+.read-circle {
+    width: 70px;
+    height: 70px;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    transition: 0.3s;
+}
+
+.catalog-card:hover .read-circle {
+    background: white;
+    color: var(--red);
+}
+
+.read-overlay span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.catalog-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 19px 2px;
+    gap: 15px;
+}
+
+.catalog-series {
+    color: #666;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.catalog-info h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 23px;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+.catalog-card:hover .catalog-info h3 {
+    color: var(--red-light);
+}
+
+.catalog-info p {
+    color: #555;
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+.catalog-meta {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    color: #555;
+    white-space: nowrap;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.catalog-meta span:first-child {
+    color: #999;
+}
+
+.coming-soon {
+    cursor: default;
+}
+
+.coming-cover {
+    height: 540px;
+    border: 1px dashed #27272a;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(181,22,36,0.09),
+            transparent 55%
+        ),
+        #0c0c0e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.coming-symbol {
+    font-family: "Oswald", sans-serif;
+    font-size: 160px;
+    color: rgba(181,22,36,0.08);
+    line-height: 1;
+}
+
+.coming-cover span {
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-top: 25px;
+}
+
+.coming-cover strong {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333;
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+}
+
+.comic-bottom {
+    min-height: 480px;
+    padding: 100px 8%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            #0d0d0f,
+            rgba(13,13,15,0.88)
+        ),
+        url("images/hangman-quote-bg.jpg") center/cover;
+}
+
+.comic-bottom::after {
+    content: "H";
+    position: absolute;
+    right: 7%;
+    top: 30px;
+    font-family: "Oswald", sans-serif;
+    font-size: 500px;
+    line-height: 1;
+    color: rgba(181,22,36,0.035);
+}
+
+.comic-bottom-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.comic-bottom h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(50px, 6vw, 80px);
+    line-height: 0.95;
+    margin: 25px 0;
+}
+
+.comic-bottom h2 span {
+    color: var(--red-light);
+}
+
+.comic-bottom p {
+    color: #777;
+    max-width: 500px;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 900px) {
+
+    .comic-catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comics-toolbar {
+        align-items: start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .comics-hero-decoration {
+        opacity: 0.5;
+        right: -30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .comics-hero {
+        min-height: 600px;
+        padding: 150px 6% 70px;
+    }
+
+    .comics-hero h1 {
+        font-size: 70px;
+    }
+
+    .comics-hero-decoration {
+        display: none;
+    }
+
+    .comics-section {
+        padding: 75px 6%;
+    }
+
+    .comic-catalog {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-cover,
+    .coming-cover {
+        height: 500px;
+    }
+
+    .comic-filter {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .filter {
+        white-space: nowrap;
+    }
+
+    .comic-bottom {
+        padding: 80px 6%;
+    }
+
+}
+
+
+.reader-body {
+    background: #050506;
+    min-height: 100vh;
+}
+
+.reader-navbar {
+    height: 70px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    background: rgba(5,5,6,0.94);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.reader-back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #888;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+.reader-back span {
+    color: var(--red-light);
+    font-size: 18px;
+}
+
+.reader-back:hover {
+    color: white;
+}
+
+.reader-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+}
+
+.reader-title span {
+    color: #777;
+}
+
+.reader-title strong {
+    color: var(--red-light);
+}
+
+.reader-info-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reader-info-button:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+.reader {
+    max-width: 1500px;
+    margin: auto;
+    padding: 40px 5% 60px;
+}
+
+.reader-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.reader-series span {
+    color: #666;
+    font-size: 8px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.reader-series h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 34px;
+    margin-top: 6px;
+}
+
+.reader-page-count {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    color: #444;
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+}
+
+.reader-page-count strong {
+    color: var(--red-light);
+    font-size: 30px;
+}
+
+.reader-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.comic-viewer {
+    width: min(100%, 900px);
+    height: min(75vh, 900px);
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0c0c0e;
+    border: 1px solid #1e1e21;
+    overflow: hidden;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.55),
+        0 0 70px rgba(181,22,36,0.04);
+}
+
+.comic-viewer img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.comic-viewer img.loaded {
+    opacity: 1;
+}
+
+.loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 2px;
+    z-index: 5;
+}
+
+.loading-spinner {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #222;
+    border-top-color: var(--red-light);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.page-click-left,
+.page-click-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.page-click-left {
+    left: 0;
+}
+
+.page-click-right {
+    right: 0;
+}
+
+.reader-arrow {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    background: #111113;
+    border: 1px solid #29292c;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 22px;
+}
+
+.reader-arrow:hover:not(:disabled) {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+.reader-arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.reader-controls {
+    max-width: 900px;
+    margin: 25px auto 0;
+    position: relative;
+}
+
+.progress-track {
+    width: 100%;
+    height: 2px;
+    background: #222;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--red-light);
+    transition: width 0.25s ease;
+}
+
+.reader-control-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.reader-control-buttons button {
+    width: 40px;
+    height: 35px;
+    background: #111113;
+    border: 1px solid #242426;
+    color: #777;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reader-control-buttons button:hover:not(:disabled) {
+    color: white;
+    border-color: var(--red);
+}
+
+.reader-control-buttons button:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.page-display {
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 6px;
+    font-family: "Oswald", sans-serif;
+}
+
+.page-display strong {
+    color: var(--red-light);
+    font-size: 20px;
+}
+
+.page-display span {
+    color: #444;
+}
+
+.fullscreen-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 35px;
+    padding: 0 12px;
+    background: transparent;
+    border: 1px solid #242426;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+}
+
+.fullscreen-button:hover {
+    color: white;
+    border-color: #555;
+}
+
+.fullscreen-button span {
+    font-size: 7px;
+    letter-spacing: 1px;
+}
+
+.reader-info-panel {
+    position: fixed;
+    right: -430px;
+    top: 0;
+    bottom: 0;
+    width: 430px;
+    background: #0d0d0f;
+    border-left: 1px solid #29292c;
+    z-index: 100;
+    transition: right 0.4s ease;
+    padding: 120px 45px;
+    box-shadow: -30px 0 70px rgba(0,0,0,0.4);
+}
+
+.reader-info-panel.active {
+    right: 0;
+}
+
+.close-info {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    border: 0;
+    background: none;
+    color: #777;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.close-info:hover {
+    color: white;
+}
+
+.info-panel-content h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 45px;
+    margin: 25px 0;
+}
+
+.info-panel-content p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.info-details {
+    margin-top: 40px;
+    border-top: 1px solid #222;
+}
+
+.info-details div {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid #222;
+}
+
+.info-details span {
+    color: #555;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.info-details strong {
+    color: #aaa;
+    font-size: 10px;
+}
+
+.reader-help {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #444;
+    padding-bottom: 35px;
+}
+
+.reader-help span {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #29292c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.reader-help p {
+    margin-left: 8px;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 800px) {
+
+    .reader {
+        padding: 25px 3% 50px;
+    }
+
+    .reader-area {
+        gap: 5px;
+    }
+
+    .reader-arrow {
+        position: absolute;
+        z-index: 10;
+        bottom: 15px;
+        width: 45px;
+        height: 45px;
+        background: rgba(10,10,11,0.85);
+    }
+
+    .reader-prev {
+        left: 15px;
+    }
+
+    .reader-next {
+        right: 15px;
+    }
+
+    .comic-viewer {
+        width: 100%;
+        height: 72vh;
+        min-height: 450px;
+    }
+
+    .fullscreen-button {
+        display: none;
+    }
+
+    .reader-info-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .reader-navbar {
+        height: 60px;
+        padding: 0 5%;
+    }
+
+    .reader-title {
+        font-size: 12px;
+    }
+
+    .reader-back {
+        font-size: 8px;
+    }
+
+    .reader-top {
+        margin-bottom: 15px;
+    }
+
+    .reader-series h1 {
+        font-size: 25px;
+    }
+
+    .reader-page-count {
+        font-size: 15px;
+    }
+
+    .reader-page-count strong {
+        font-size: 22px;
+    }
+
+    .comic-viewer {
+        height: 70vh;
+        min-height: 400px;
+    }
+
+    .reader-help {
+        display: none;
+    }
+
+}

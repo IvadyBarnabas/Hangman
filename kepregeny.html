@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Képregény olvasó | The Hangman</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="reader-body">
+
+<header class="reader-navbar">
+
+    <a href="kepregenyek.html" class="reader-back">
+        <span>←</span>
+        KÉPREGÉNYEK
+    </a>
+
+    <div class="reader-title">
+        <span>THE</span>
+        <strong>HANGMAN</strong>
+    </div>
+
+    <button class="reader-info-button" onclick="toggleInfo()">
+        i
+    </button>
+
+</header>
+
+
+<main class="reader">
+
+    <div class="reader-top">
+
+        <div class="reader-series">
+            <span>THE HANGMAN</span>
+            <h1 id="comicTitle">BETÖLTÉS...</h1>
+        </div>
+
+        <div class="reader-page-count">
+            <strong id="currentPage">01</strong>
+            <span>/</span>
+            <span id="totalPages">01</span>
+        </div>
+
+    </div>
+
+
+    <div class="reader-area">
+
+        <button
+            class="reader-arrow reader-prev"
+            id="prevButton"
+            onclick="previousPage()">
+
+            <span>←</span>
+
+        </button>
+
+
+        <div class="comic-viewer" id="comicViewer">
+
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <span>KÉPREGÉNY BETÖLTÉSE...</span>
+            </div>
+
+            <img
+                id="comicPage"
+                src=""
+                alt="Képregény oldal">
+
+            <div class="page-click-left" onclick="previousPage()"></div>
+            <div class="page-click-right" onclick="nextPage()"></div>
+
+        </div>
+
+
+        <button
+            class="reader-arrow reader-next"
+            id="nextButton"
+            onclick="nextPage()">
+
+            <span>→</span>
+
+        </button>
+
+    </div>
+
+
+    <div class="reader-controls">
+
+        <div class="reader-progress">
+
+            <div class="progress-track">
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="reader-control-buttons">
+
+            <button onclick="firstPage()" id="firstButton">
+                |←
+            </button>
+
+            <button onclick="previousPage()">
+                ←
+            </button>
+
+            <div class="page-display">
+                <strong id="pageNumber">01</strong>
+                <span>/</span>
+                <span id="pageTotal">01</span>
+            </div>
+
+            <button onclick="nextPage()">
+                →
+            </button>
+
+            <button onclick="lastPage()" id="lastButton">
+                →|
+            </button>
+
+        </div>
+
+
+        <button
+            class="fullscreen-button"
+            onclick="toggleFullscreen()">
+
+            ⛶
+            <span>FULLSCREEN</span>
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<div class="reader-info-panel" id="infoPanel">
+
+    <button
+        class="close-info"
+        onclick="toggleInfo()">
+        ×
+    </button>
+
+    <div class="info-panel-content">
+
+        <div class="section-label">
+            <span></span>
+            KÉPREGÉNY INFORMÁCIÓ
+        </div>
+
+        <h2 id="infoTitle">
+            BETÖLTÉS...
+        </h2>
+
+        <p id="infoDescription">
+            A képregény adatai betöltés alatt.
+        </p>
+
+        <div class="info-details">
+
+            <div>
+                <span>SOROZAT</span>
+                <strong id="infoSeries">
+                    THE HANGMAN
+                </strong>
+            </div>
+
+            <div>
+                <span>KIADÁS</span>
+                <strong id="infoIssue">
+                    #01
+                </strong>
+            </div>
+
+            <div>
+                <span>OLDALAK</span>
+                <strong id="infoPages">
+                    00
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="reader-help">
+
+    <span>←</span>
+    <span>→</span>
+    <p>Használd a nyilakat a lapozáshoz</p>
+
+</div>
+
+
+<script src="script.js"></script>
+
+<script>
+
+const comics = {
+
+    1: {
+        title: "The Hangman: Summer Vacation",
+        issue: "#01",
+        series: "THE HANGMAN",
+        description:
+            "Hóhér történetének első fejezete. Egy sötét világ, ahol az igazság és a bosszú határai lassan elmosódnak.",
+        pages: [
+            "kepek/summervacation.webp",
+            "kepek/beach1.webp",
+            "kepek/beach2.webp",
+            "kepek/beach3.webp"
+        ]
+    },
+
+    2: {
+        title: "A SÖTÉT ÚT",
+        issue: "#02",
+        series: "THE HANGMAN",
+        description:
+            "Hóhér egy újabb ügy nyomába ered, amely egy olyan ellenséghez vezeti, akire nem számított.",
+        pages: [
+            "kepek/summervacation2.webp",
+            "kepek/summervacation2_1.webp",
+            "kepek/summervacation2_2.webp",
+            "kepek/summervacation2_3.webp",
+            "kepek/summervacation2_4.webp"
+        ]
+    },
+
+    3: {
+        title: "A VÖRÖS ÉJSZAKA",
+        issue: "#03",
+        series: "THE HANGMAN",
+        description:
+            "Egy különálló történet az éjszaka mélyéről. Hóhér múltjának egy újabb darabja kerül felszínre.",
+        pages: [
+            "kepek/hellishcover.webp",
+            "kepek/hellishh1.webp",
+            "kepek/hellishh2.webp",
+            "kepek/hellishh3.webp",
+            "kepek/hellishh4.webp"
+        ]
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const comicId = params.get("id") || "1";
+
+const comic = comics[comicId] || comics[1];
+
+let currentPageIndex = 0;
+
+
+const comicImage = document.getElementById("comicPage");
+const comicTitle = document.getElementById("comicTitle");
+const currentPage = document.getElementById("currentPage");
+const totalPages = document.getElementById("totalPages");
+
+const pageNumber = document.getElementById("pageNumber");
+const pageTotal = document.getElementById("pageTotal");
+
+const progressFill = document.getElementById("progressFill");
+
+const prevButton = document.getElementById("prevButton");
+const nextButtonElement = document.getElementById("nextButton");
+
+const infoTitle = document.getElementById("infoTitle");
+const infoDescription = document.getElementById("infoDescription");
+const infoSeries = document.getElementById("infoSeries");
+const infoIssue = document.getElementById("infoIssue");
+const infoPages = document.getElementById("infoPages");
+
+
+function padNumber(number) {
+
+    return String(number).padStart(2, "0");
+
+}
+
+
+function loadComic() {
+
+    comicTitle.textContent = comic.title;
+
+    totalPages.textContent =
+        padNumber(comic.pages.length);
+
+    pageTotal.textContent =
+        padNumber(comic.pages.length);
+
+    infoTitle.textContent =
+        comic.title;
+
+    infoDescription.textContent =
+        comic.description;
+
+    infoSeries.textContent =
+        comic.series;
+
+    infoIssue.textContent =
+        comic.issue;
+
+    infoPages.textContent =
+        padNumber(comic.pages.length);
+
+    loadPage();
+
+}
+
+
+function loadPage() {
+
+    const loading =
+        document.querySelector(".loading");
+
+    loading.style.display = "flex";
+
+    comicImage.classList.remove("loaded");
+
+    const newImage = new Image();
+
+    newImage.onload = function() {
+
+        comicImage.src =
+            comic.pages[currentPageIndex];
+
+        loading.style.display = "none";
+
+        setTimeout(() => {
+            comicImage.classList.add("loaded");
+        }, 30);
+
+    };
+
+    newImage.onerror = function() {
+
+        loading.innerHTML = `
+            <span style="color:#e32838;">
+                A KÉP NEM TALÁLHATÓ
+            </span>
+        `;
+
+    };
+
+    newImage.src =
+        comic.pages[currentPageIndex];
+
+
+    const page = currentPageIndex + 1;
+    const total = comic.pages.length;
+
+    currentPage.textContent =
+        padNumber(page);
+
+    pageNumber.textContent =
+        padNumber(page);
+
+    const progress =
+        (page / total) * 100;
+
+    progressFill.style.width =
+        progress + "%";
+
+
+    updateButtons();
+
+}
+
+
+function updateButtons() {
+
+    prevButton.disabled =
+        currentPageIndex === 0;
+
+    document.getElementById("firstButton").disabled =
+        currentPageIndex === 0;
+
+    nextButtonElement.disabled =
+        currentPageIndex === comic.pages.length - 1;
+
+    document.getElementById("lastButton").disabled =
+        currentPageIndex === comic.pages.length - 1;
+
+}
+
+
+function nextPage() {
+
+    if (
+        currentPageIndex <
+        comic.pages.length - 1
+    ) {
+
+        currentPageIndex++;
+
+        loadPage();
+
+    }
+
+}
+
+
+function previousPage() {
+
+    if (currentPageIndex > 0) {
+
+        currentPageIndex--;
+
+        loadPage();
+
+    }
+
+}
+
+
+function firstPage() {
+
+    currentPageIndex = 0;
+
+    loadPage();
+
+}
+
+
+function lastPage() {
+
+    currentPageIndex =
+        comic.pages.length - 1;
+
+    loadPage();
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "ArrowRight") {
+            nextPage();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousPage();
+        }
+
+        if (event.key === "Home") {
+            firstPage();
+        }
+
+        if (event.key === "End") {
+            lastPage();
+        }
+
+    }
+);
+
+
+function toggleInfo() {
+
+    document
+        .getElementById("infoPanel")
+        .classList.toggle("active");
+
+}
+
+
+function toggleFullscreen() {
+
+    const viewer =
+        document.getElementById("comicViewer");
+
+    if (!document.fullscreenElement) {
+
+        viewer.requestFullscreen();
+
+    } else {
+
+        document.exitFullscreen();
+
+    }
+
+}
+
+
+loadComic();
+
+</script>
+
+</body>
+</html>
